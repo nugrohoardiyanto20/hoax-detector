@@ -4,6 +4,7 @@ import numpy as np
 import nltk
 import re
 import string
+import os
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from tensorflow.keras.models import load_model
@@ -12,11 +13,23 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # Set page config
-st.set_page_config(page_title="VALIDIN", page_icon="📰", layout="wide")
+st.set_page_config(page_title="HoaxBuster", page_icon="📰", layout="wide")
+
+# Set custom NLTK data directory to a writable location
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir)
+nltk.data.path.append(nltk_data_dir)
+
+# Download NLTK data with error handling
+try:
+    nltk.download('punkt_tab', download_dir=nltk_data_dir)
+    nltk.download('stopwords', download_dir=nltk_data_dir)
+except Exception as e:
+    st.error(f"Failed to download NLTK data: {str(e)}. Please ensure you have internet access and write permissions.")
+    st.stop()
 
 # Inisialisasi NLTK
-nltk.download('punkt_tab')
-nltk.download('stopwords')
 stop_words = set(stopwords.words('indonesian'))
 
 # Fungsi preprocessing teks
@@ -80,7 +93,7 @@ st.markdown("""
         font-weight: 700;
         color: #1E3A8A;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .subtitle {
         font-size: 1.2rem;
@@ -154,7 +167,7 @@ st.markdown("""
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Header
-st.markdown('<h1 class="title">VALIDIN</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">HoaxBuster</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Deteksi berita hoax dengan cepat dan akurat menggunakan AI canggih.</p>', unsafe_allow_html=True)
 
 # Konten utama dalam card
@@ -194,6 +207,6 @@ with st.container():
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown('<p class="footer">© 2025 Validin.</p>', unsafe_allow_html=True)
+st.markdown('<p class="footer">© 2025 Validin. Powered by xAI.</p>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
