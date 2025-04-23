@@ -59,7 +59,7 @@ max_features = 5000
 max_len = 300
 
 # Custom CSS untuk tampilan modern
-st.markdown(
+st.markdown("""
     <style>
     /* Font dan Background */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -72,14 +72,14 @@ st.markdown(
     }
     /* Header */
     .title {
-        font-size: 2,5rem;
+        font-size: 2.5rem;
         font-weight: 700;
         color: #1E3A8A;
         text-align: center;
         margin-bottom: 1rem;
     }
     .subtitle {
-        font-size: 1,2rem;
+        font-size: 1.2rem;
         color: #4B5563;
         text-align: center;
         margin-bottom: 2rem;
@@ -110,10 +110,10 @@ st.markdown(
         background-color: #1E3A8A;
         color: white;
         border-radius: 8px;
-        padding: 0,75rem 2rem;
-        font-size: 1,1rem;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
         font-weight: 500;
-        transition: background-color 0,3s ease;
+        transition: background-color 0.3s ease;
     }
     .stButton button:hover {
         background-color: #1C2F6B;
@@ -122,8 +122,8 @@ st.markdown(
     .result-box {
         padding: 1.5rem;
         border-radius: 8px;
-        margin-top: 1,5rem;
-        font-size: 1,1rem;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
         font-weight: 500;
     }
     .success {
@@ -141,10 +141,10 @@ st.markdown(
         text-align: center;
         color: #6B7280;
         margin-top: 3rem;
-        font-size: 0,9rem;
+        font-size: 0.9rem;
     }
     </style>
-, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # UI Streamlit
 st.markdown('<h1 class="title">HoaxBuster</h1>', unsafe_allow_html=True)
@@ -173,7 +173,7 @@ with st.container():
                 
                 # Prediksi
                 prediction = model.predict(text_padded)
-                threshold = 0,6
+                threshold = 0.6
                 hoax_prob = prediction[0][1]
                 pred_class = 1 if hoax_prob > threshold else 0
                 pred_prob = hoax_prob * 100 if pred_class == 1 else (1 - hoax_prob) * 100
