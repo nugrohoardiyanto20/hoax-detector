@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # Set page config
-st.set_page_config(page_title="HoaxBuster", page_icon="📰", layout="wide")
+st.set_page_config(page_title="Validin", page_icon="📰", layout="wide")
 
 # Set custom NLTK data directory to a writable location
 nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
@@ -167,7 +167,7 @@ st.markdown("""
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Header
-st.markdown('<h1 class="title">HoaxBuster</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">VALIDIN</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Deteksi berita hoax dengan cepat dan akurat menggunakan AI canggih.</p>', unsafe_allow_html=True)
 
 # Konten utama dalam card
@@ -207,6 +207,6 @@ with st.container():
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown('<p class="footer">© 2025 Validin. Powered by xAI.</p>', unsafe_allow_html=True)
+st.markdown('<p class="footer">© 2025 Validin.</p>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
