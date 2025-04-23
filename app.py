@@ -12,7 +12,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # Set page config
-st.set_page_config(page_title="HoaxBuster", page_icon="📰", layout="wide")
+st.set_page_config(page_title="VALIDIN", page_icon="📰", layout="wide")
 
 # Inisialisasi NLTK
 nltk.download('punkt_tab')
@@ -61,14 +61,18 @@ max_len = 300
 # Custom CSS untuk tampilan modern
 st.markdown("""
     <style>
-    /* Font dan Background */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #F3F4F6;
-    }
+    /* Reset default Streamlit styles */
     .stApp {
         background-color: #F3F4F6;
+        font-family: 'Inter', sans-serif;
+    }
+    /* Import font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    /* Main container */
+    .main {
+        background-color: #F3F4F6;
+        min-height: 100vh;
+        padding: 2rem;
     }
     /* Header */
     .title {
@@ -94,29 +98,29 @@ st.markdown("""
         max-width: 800px;
     }
     /* Text Area */
-    .stTextArea textarea {
-        border: 1px solid #D1D5DB;
-        border-radius: 8px;
-        padding: 1rem;
-        font-size: 1rem;
-        background-color: #F9FAFB;
+    div[data-testid="stTextArea"] textarea {
+        border: 1px solid #D1D5DB !important;
+        border-radius: 8px !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        background-color: #F9FAFB !important;
     }
-    .stTextArea textarea:focus {
-        border-color: #1E3A8A;
-        box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    div[data-testid="stTextArea"] textarea:focus {
+        border-color: #1E3A8A !important;
+        box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1) !important;
     }
     /* Button */
-    .stButton button {
-        background-color: #1E3A8A;
-        color: white;
-        border-radius: 8px;
-        padding: 0.75rem 2rem;
-        font-size: 1.1rem;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
+    div[data-testid="stButton"] button {
+        background-color: #1E3A8A !important;
+        color: white !important;
+        border-radius: 8px !important;
+        padding: 0.75rem 2rem !important;
+        font-size: 1.1rem !important;
+        font-weight: 500 !important;
+        transition: background-color 0.3s ease !important;
     }
-    .stButton button:hover {
-        background-color: #1C2F6B;
+    div[data-testid="stButton"] button:hover {
+        background-color: #1C2F6B !important;
     }
     /* Result Box */
     .result-box {
@@ -147,6 +151,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # UI Streamlit
+st.markdown('<div class="main">', unsafe_allow_html=True)
+
+# Header
 st.markdown('<h1 class="title">HoaxBuster</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Deteksi berita hoax dengan cepat dan akurat menggunakan AI canggih.</p>', unsafe_allow_html=True)
 
@@ -187,4 +194,6 @@ with st.container():
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown('<p class="footer">© 2025 Validin. Powered by xAI.</p>', unsafe_allow_html=True)
+st.markdown('<p class="footer">© 2025 Validin.</p>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
