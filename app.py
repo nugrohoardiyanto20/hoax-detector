@@ -154,7 +154,7 @@ st.markdown("""
 st.markdown('<div class="main">', unsafe_allow_html=True)
 
 # Header
-st.markdown('<h1 class="title">HoaxBuster</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">VALIDIN</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Deteksi berita hoax dengan cepat dan akurat menggunakan AI canggih.</p>', unsafe_allow_html=True)
 
 # Konten utama dalam card
